@@ -57,9 +57,7 @@ L'attaque se déroule en 3 phases. Les languages de programmation utilisés sont
 Durant cette phase l'attaquant réalise 2 actions :
 - Se placer à proximité du pc de la victime et activer la source wifi (ici on utilise un partage de connexion depuis le pc de l'attaquant).
 - Lancer le script server.py sur le pc de l'attaquant.
-<br/>
 Ce script permet au pc de l'attaquant de jouer le rôle du serveur dans l'interface client/serveur mis en place dans l'attaque.
-<br/>
 L'attaquant (serveur) recevra les données envoyées par la victime (client). Cela nécessite que l'attaquant et la victime soient sur le même réseau wifi.
 
 ### **phase 2 : Attaque via Bash Bunny (client.py, payload.txt)**
@@ -67,7 +65,6 @@ Durante cette phase l'attaquant doit accéder physiquement au pc de la victime e
 
 Nous avons développé 2 payloads selon que le pc soit sous windows ou sous linux. L'attaque se réalise de façon similaire sous windows et sous linux :
 - le pc de la victime se connecte au wifi de l'attaquant.
-<br/>
 Sous linux c'est une simple commande nmcli tandis que sous windows il faut créer un profil wifi (car la victime ne s'est jamais connecté à ce wifi), on réalise cela avec un script powershell 'connect_to_wifi.ps1'.
 - lancement du script client.py (qui est situé dans la Bash Bunny). L'interface client/serveur est maintenant en place.
 
